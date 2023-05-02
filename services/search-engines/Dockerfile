@@ -6,16 +6,16 @@ FROM scratch as m2d_search_engine_no
 COPY tools/dummy/dummy ./
 CMD ["/dummy"]
 
-FROM m2d_search_engine_no AS m2d_search_engine_no_opensearch
-FROM m2d_search_engine_no AS m2d_search_engine_no_elasticsearch
+# FROM m2d_search_engine_no AS m2d_search_engine_no_opensearch
+# FROM m2d_search_engine_no AS m2d_search_engine_no_elasticsearch
 
-FROM opensearchproject/opensearch:1.2.4 AS m2d_search_engine_yes_opensearch_1
-FROM opensearchproject/opensearch:2.5.0 AS m2d_search_engine_yes_opensearch_2
+# FROM opensearchproject/opensearch:1.2.4 AS m2d_search_engine_yes_opensearch_1
+# FROM opensearchproject/opensearch:2.5.0 AS m2d_search_engine_yes_opensearch_2
 
-FROM opensearchproject/opensearch:1.2.4 AS m2d_search_engine_yes_opensearch_1.2
-FROM opensearchproject/opensearch:2.5.0 AS m2d_search_engine_yes_opensearch_2.5
+# FROM opensearchproject/opensearch:1.2.4 AS m2d_search_engine_yes_opensearch_1.2
+# FROM opensearchproject/opensearch:2.5.0 AS m2d_search_engine_yes_opensearch_2.5
 
-FROM m2d_search_engine_yes_opensearch_${M2D_SEARCH_ENGINE_VERSION} AS m2d_search_engine_yes_opensearch
+# FROM m2d_search_engine_yes_opensearch_${M2D_SEARCH_ENGINE_VERSION} AS m2d_search_engine_yes_opensearch
 ENV DISABLE_INSTALL_DEMO_CONFIG=true \
     discovery.type=single-node \
     plugins.security.disabled=true \
