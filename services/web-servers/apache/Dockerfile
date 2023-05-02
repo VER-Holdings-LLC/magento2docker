@@ -221,7 +221,7 @@ RUN ln -s /usr/local/bin/composer2 /usr/local/bin/composer
 # XDEBUG:
 ARG M2D_XDEBUG_IDE_KEY=PHPSTORM
 ENV M2D_XDEBUG_IDE_KEY=${M2D_XDEBUG_IDE_KEY:-PHPSTORM}
-RUN pecl install xdebug \
+RUN pecl install xdebug-2.9.0 \
     && echo ";zend_extension=xdebug.so" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.idekey=$M2D_XDEBUG_IDE_KEY" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
