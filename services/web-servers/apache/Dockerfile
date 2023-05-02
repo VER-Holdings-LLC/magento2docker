@@ -237,9 +237,9 @@ RUN pecl install xdebug-2.9.0 \
 ## IMAGE ADJUSTEMNTS FOR PHP 7.3 ##
 FROM m2d_web_server_apache_php7x AS m2d_web_server_apache_php7.3
 # PHP EXTENSIONS GD:
-RUN docker-php-ext-configure gd --with-gd --with-webp-dir \
-    --with-png-dir --with-zlib-dir --with-xpm-dir \
-    --with-freetype-dir=/usr/include/freetype2/ --with-jpeg-dir=/usr/include/ \
+RUN docker-php-ext-configure gd --with-gd --with-webp \
+    --with-png --with-zlib --with-xpm \
+    --with-freetype=/usr/include/freetype2/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 ## END OF IMAGE ADJUSTMENTS FOR PHP 7.3 ##
 
